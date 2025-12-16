@@ -4,7 +4,9 @@
     "@typescript-eslint/lines-between-class-members": "off",
     "@typescript-eslint/no-throw-literal": "off",
     "@typescript-eslint/prefer-ts-expect-error": "off",
-    "@typescript-eslint/consistent-type-assertions": "off"
+    "@typescript-eslint/consistent-type-assertions": "off",
+    "@typescript-eslint/no-implied-eval": "off",
+    "no-new-func": "off"
   }
 }
 

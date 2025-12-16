@@ -20,13 +20,15 @@ export function getDB(): D1Database | null {
     }
 
     // 在 Cloudflare 生产环境中尝试获取数据库
-    // 注意：@cloudflare/next-on-pages 在构建时被标记为外部模块
-    // 在运行时环境中才会加载，所以这里使用动态 require 避免构建错误
+    // 使用字符串拼接来避免构建时解析 @cloudflare/next-on-pages
+    // 这个模块只在 Cloudflare 运行时环境中可用
     try {
-        // 使用动态 require（在 webpack 配置中已标记为外部模块）
+        // 使用字符串拼接来动态构建模块路径，避免构建时解析
+        // eslint-disable-next-line @typescript-eslint/no-implied-eval, no-new-func
+        const moduleName = '@cloudflare' + '/next-on-pages';
         if (typeof require !== 'undefined') {
-            // eslint-disable-next-line @typescript-eslint/no-var-requires
-            const cloudflareModule = require('@cloudflare/next-on-pages');
+            // eslint-disable-next-line
+            const cloudflareModule = require(moduleName);
             if (cloudflareModule?.getRequestContext) {
                 const ctx = cloudflareModule.getRequestContext();
                 return (ctx?.env?.DB as D1Database) || null;

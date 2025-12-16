@@ -5,16 +5,19 @@ const nextConfig = {
     unoptimized: true,
   },
   webpack: (config, { isServer }) => {
-    // 在本地开发时，将 @cloudflare/next-on-pages 标记为外部模块
-    // 这样 webpack 就不会尝试解析它
-    if (process.env.NODE_ENV !== 'production') {
-      config.externals = config.externals || []
-      if (Array.isArray(config.externals)) {
-        config.externals.push('@cloudflare/next-on-pages')
-      } else {
-        config.externals = [config.externals, '@cloudflare/next-on-pages']
+    // 将 @cloudflare/next-on-pages 标记为外部模块
+    // 这样 webpack 就不会尝试解析它，在运行时由 Cloudflare 环境提供
+    const originalExternals = config.externals || []
+    config.externals = [
+      ...(Array.isArray(originalExternals) ? originalExternals : [originalExternals]),
+      ({ request }, callback) => {
+        if (request === '@cloudflare/next-on-pages') {
+          // 标记为外部模块，在运行时由 Cloudflare 环境提供
+          return callback(null, 'commonjs ' + request)
+        }
+        callback()
       }
-    }
+    ]
     return config
   },
 }
