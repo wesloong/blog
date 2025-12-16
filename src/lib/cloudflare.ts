@@ -25,7 +25,7 @@ export function getDB(): D1Database | null {
     try {
         // 使用动态 require（在 webpack 配置中已标记为外部模块）
         if (typeof require !== 'undefined') {
-            // eslint-disable-next-line @typescript-eslint/no-require-imports
+            // eslint-disable-next-line @typescript-eslint/no-var-requires
             const cloudflareModule = require('@cloudflare/next-on-pages');
             if (cloudflareModule?.getRequestContext) {
                 const ctx = cloudflareModule.getRequestContext();
