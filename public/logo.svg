@@ -1,0 +1,29 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- 猫头鹰身体（圆润的椭圆形） -->
+  <ellipse cx="100" cy="130" rx="55" ry="45" fill="#2563EB" />
+  
+  <!-- 猫头鹰头部（大圆形，更可爱） -->
+  <circle cx="100" cy="80" r="65" fill="#2563EB" />
+  
+  <!-- 左眼（大而圆润） -->
+  <circle cx="80" cy="75" r="22" fill="#F8FAFC" />
+  <circle cx="80" cy="75" r="14" fill="#1E293B" />
+  <circle cx="80" cy="75" r="6" fill="#F8FAFC" />
+  
+  <!-- 右眼（大而圆润） -->
+  <circle cx="120" cy="75" r="22" fill="#F8FAFC" />
+  <circle cx="120" cy="75" r="14" fill="#1E293B" />
+  <circle cx="120" cy="75" r="6" fill="#F8FAFC" />
+  
+  <!-- 小鼻子（倒三角形，更小更可爱） -->
+  <path d="M 100 88 L 95 96 L 105 96 Z" fill="#1E293B" />
+  
+  <!-- 左翅膀（圆润） -->
+  <ellipse cx="55" cy="125" rx="20" ry="35" fill="#2563EB" />
+  
+  <!-- 右翅膀（圆润） -->
+  <ellipse cx="145" cy="125" rx="20" ry="35" fill="#2563EB" />
+  
+  <!-- 胸部装饰（简单的弧线，增加层次感） -->
+  <ellipse cx="100" cy="115" rx="25" ry="20" fill="#3B82F6" />
+</svg>
