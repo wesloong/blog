@@ -1,4 +1,10 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": "next/core-web-vitals",
+  "rules": {
+    "@typescript-eslint/lines-between-class-members": "off",
+    "@typescript-eslint/no-throw-literal": "off",
+    "@typescript-eslint/prefer-ts-expect-error": "off",
+    "@typescript-eslint/consistent-type-assertions": "off"
+  }
 }
 
